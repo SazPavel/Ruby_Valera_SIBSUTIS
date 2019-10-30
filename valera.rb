@@ -58,8 +58,8 @@ class Valera
 
   def cheerfulness!(cheerfulness)
     @cheerfulness += cheerfulness
-    @cheerfulness = 100 if @cheerfulness > 100
-    @cheerfulness = 0 if @cheerfulness.negative?
+    @cheerfulness = 10 if @cheerfulness > 10
+    @cheerfulness = -10 if @cheerfulness < -10
     @cheerfulness
   end
 

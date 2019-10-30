@@ -4,7 +4,7 @@ require 'rspec'
 require './valera.rb'
 
 RSpec.describe Valera do
-  let(:valera) { Valera.new(100, 100, 100, 100, 100) }
+  let(:valera) { Valera.new(100, 100, 100, 10, 100) }
   let(:dead_valera) { Valera.new(0, 0, 0, 0, 0) }
 
   describe '#checker?' do
@@ -29,8 +29,8 @@ RSpec.describe Valera do
     context 'when health encrease' do
       it { expect(dead_valera.change_properties!('health', 10)).to be 10 }
     end
-    context 'when cheerfulness more then 100' do
-      it { expect(valera.change_properties!('cheerfulness', 50)).to be 100 }
+    context 'when cheerfulness more then 10' do
+      it { expect(valera.change_properties!('cheerfulness', 50)).to be 10 }
     end
     context 'when fatigue less then 0' do
       it { expect(valera.change_properties!('fatigue', -150)).to be 0 }
