@@ -1,5 +1,4 @@
 # Checker for available actions
-
 class ValeraChecker
   def self.check(valera, action_string)
     action = validate_action(action_string)
