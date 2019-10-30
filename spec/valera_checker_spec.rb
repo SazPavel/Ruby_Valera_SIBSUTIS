@@ -1,12 +1,10 @@
-# frozen_string_literal: true
-
 require 'rspec'
 require './valera_checker.rb'
 require './valera.rb'
 
 RSpec.describe ValeraChecker do
   describe '#validate_action' do
-    subject { ValeraChecker.new.validate_action(action) }
+    subject { ValeraChecker.send(:validate_action, action) }
     context 'when action name is correct' do
       let(:action) { 'work' }
       it { is_expected.to eq action }
@@ -17,7 +15,7 @@ RSpec.describe ValeraChecker do
     end
   end
   describe '#available?' do
-    subject { ValeraChecker.new.available?(valera, action) }
+    subject { ValeraChecker.send(:available?, valera, action) }
     context 'when Valera can do this action' do
       let(:action) { 'work' }
       let(:valera) { Valera.new(100, 10, 0, 0, 0) }
@@ -30,7 +28,7 @@ RSpec.describe ValeraChecker do
     end
   end
   describe '#check' do
-    subject { ValeraChecker.new.check(valera, action) }
+    subject { ValeraChecker.check(valera, action) }
     context 'when Valera is alive and action is correct' do
       let(:action) { 'work' }
       let(:valera) { Valera.new(100, 10, 0, 0, 0) }
