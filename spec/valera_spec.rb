@@ -4,7 +4,8 @@ require 'rspec'
 require './valera.rb'
 
 RSpec.describe Valera do
-  let(:valera) { Valera.new(100, 100, 100, 100) }
+  let(:valera) { Valera.new(100, 100, 100, 100, 100) }
+  let!(:dead_valera) { Valera.new(0, 100, 100, 100, 100) }
 
   describe '#health!' do
     context 'when decrease' do
@@ -53,8 +54,7 @@ RSpec.describe Valera do
       it { expect(valera.alive?).to be true }
     end
     context 'when false' do
-      valera.health!(-150)
-      it { expect(valera.alive?).to be false }
+      it { expect(dead_valera.alive?).to be false }
     end
   end
 end

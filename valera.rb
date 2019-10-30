@@ -4,8 +4,8 @@
 class Valera
   attr_accessor :health, :mana, :cheerfulness, :fatigue, :money
 
-  def initialize(mana, cheerfulness, fatigue, money)
-    @health = 100
+  def initialize(health, mana, cheerfulness, fatigue, money)
+    @health = health
     @mana = mana
     @cheerfulness = cheerfulness
     @fatigue = fatigue
@@ -41,7 +41,7 @@ class Valera
     @money
   end
   def alive?
-    if @health
+    if @health > 0
       true
     else
       false 
