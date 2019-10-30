@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rspec'
 require './valera_checker.rb'
 require './valera.rb'
