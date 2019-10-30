@@ -12,6 +12,16 @@ class Valera
     @money = money
   end
 
+  def checker(properties, value)
+    case properties
+    when 'health' then @health >= value
+    when 'mana' then @mana >= value
+    when 'cheerfulness' then @cheerfulness >= value
+    when 'fatigue' then @fatigue >= value
+    when 'money' then @money >= value
+    end
+  end
+
   def change_properties!(properties, value)
     case properties
     when 'health' then health!(value)
