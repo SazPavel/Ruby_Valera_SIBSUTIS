@@ -16,7 +16,7 @@ class ValeraChecker
   def self.available?(valera, action)
     action_available = true
     action_available = false \
-        if action == 'work' && (valera.mana >= 50 || valera.fatigue >= 10)
+        if action == 'work' && (valera.checker?('mana', 50) || valera.checker?('fatigue', 10))
     action_available
   end
 

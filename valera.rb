@@ -12,7 +12,7 @@ class Valera
     @money = money
   end
 
-  def checker(properties, value)
+  def checker?(properties, value)
     case properties
     when 'health' then @health >= value
     when 'mana' then @mana >= value

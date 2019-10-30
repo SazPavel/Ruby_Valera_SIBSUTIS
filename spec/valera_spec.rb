@@ -7,18 +7,18 @@ RSpec.describe Valera do
   let(:valera) { Valera.new(100, 100, 100, 100, 100) }
   let(:dead_valera) { Valera.new(0, 0, 0, 0, 0) }
 
-  describe '#checker' do
+  describe '#checker?' do
     context 'when mana > value' do
-      it { expect(valera.checker('mana', 50)).to be true }
+      it { expect(valera.checker?('mana', 50)).to be true }
     end
     context 'when cheerfulness < value' do
-      it { expect(dead_valera.checker('cheerfulness', 50)).to be false }
+      it { expect(dead_valera.checker?('cheerfulness', 50)).to be false }
     end
     context 'when health > value' do
-      it { expect(valera.checker('health', 50)).to be true }
+      it { expect(valera.checker?('health', 50)).to be true }
     end
     context 'when fatigue < value' do
-      it { expect(dead_valera.checker('fatigue', 50)).to be false }
+      it { expect(dead_valera.checker?('fatigue', 50)).to be false }
     end
   end
 
