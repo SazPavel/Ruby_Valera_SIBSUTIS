@@ -29,4 +29,22 @@ RSpec.describe ValeraChecker do
       it { is_expected.to be_falsey }
     end
   end
+  describe '#check' do
+    subject { ValeraChecker.new.check(valera, action) }
+    context 'when Valera is alive and action is correct' do
+      let(:action) { 'work' }
+      let(:valera) { Valera.new(100, 10, 0, 0, 0) }
+      it { is_expected.to eq action }
+    end
+    context 'when Valera is alive and action is incorrect' do
+      let(:action) { 'ork' }
+      let(:valera) { Valera.new(100, 10, 0, 0, 0) }
+      it { is_expected.to be nil }
+    end
+    context 'when Valera is no more' do
+      let(:action) { 'work' }
+      let(:valera) { Valera.new(0, 10, 0, 0, 0) }
+      it { is_expected.to be nil }
+    end
+  end
 end

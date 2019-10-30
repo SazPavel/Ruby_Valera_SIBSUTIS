@@ -1,7 +1,14 @@
 # Checker for available actions
-#TODO handing w/o object creation
+#TODO handing w/o object creation (self?)
+#TODO private
 
 class ValeraChecker
+
+  def check(valera, action_string)
+    action = validate_action(action_string)
+    action = nil unless (available?(valera, action) && valera.alive?)
+    action
+  end
 
   def validate_action(action_string)
     available_actions = ['work', 'behold', 'wine', 'bar', \
