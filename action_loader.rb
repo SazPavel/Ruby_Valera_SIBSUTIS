@@ -11,7 +11,7 @@ class ActionLoader
   def load
     ActionsContainer.new(
       YAML.safe_load(File.open(@filename)).map { |data| build_action(data) }
-    )
+    ) if File.file?(@filename)
   end
 
   private
@@ -25,7 +25,11 @@ class ActionLoader
   end
 
   # TODO
-  def build_cond(data) end
+  def build_cond(data)
+    data.to_hash
+  end
 
-  def build_effect(data) end
+  def build_effect(data)
+    data.to_hash
+  end
 end
