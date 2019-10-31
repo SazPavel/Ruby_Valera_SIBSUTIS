@@ -62,11 +62,7 @@ class Valera
   end
 
   def alive?
-    if @health.positive?
-      true
-    else
-      false
-    end
+    @health.positive?
   end
 
   private
@@ -101,18 +97,10 @@ class Valera
   end
 
   def valid_min_border(propertie, min_border)
-    if propertie <= min_border
-      min_border
-    else
-      propertie
-    end
+    propertie > min_border ? propertie : min_border
   end
 
   def valid_max_border(propertie, max_border)
-    if propertie >= max_border
-      max_border
-    else
-      propertie
-    end
+    propertie < max_border ? propertie : max_border
   end
 end
