@@ -9,7 +9,7 @@
         "operator":"<",
         "value":50 },
       { 
-        "filed":"fatigue",
+        "field":"fatigue",
         "operator":"<",
         "value":10}],
     "effects": [
