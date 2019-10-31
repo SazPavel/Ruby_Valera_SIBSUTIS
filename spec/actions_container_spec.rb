@@ -13,10 +13,15 @@ RSpec.describe ActionsContainer do
     Action.new(name: 'pork')
   end
   let(:not_available_action) do
-    Action.new(name: 'work')
+    Action.new(name: 'work', conds: \
+      [{ 'field' => 'mana', 'operator' => '<', 'value' => 50 }, \
+       { 'field' => 'fatigue', 'operator' => '<', 'value' => 10 }])
   end
   let(:valera) { Valera.new(100, 20, 0, 100, 0) }
-  let(:container) { ActionsContainer.new [unknown_action, available_action, not_available_action] }
+  let(:container) do
+    ActionsContainer.new \
+      [unknown_action, available_action, not_available_action]
+  end
 
   describe '#available_action' do
     subject { container.available_action(valera) }

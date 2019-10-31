@@ -10,6 +10,6 @@ class ActionsContainer
   end
 
   def available_action(valera)
-    actions.select { |action| ValeraChecker.send(:check, valera, action.name) }
+    actions.select { |action| ValeraChecker.send(:check, valera, action) }
   end
 end
