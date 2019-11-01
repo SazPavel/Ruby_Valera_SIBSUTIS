@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require './action.rb'
 
 # Checker for available actions
@@ -11,7 +13,7 @@ class ValeraChecker
 
   def self.valid?(action_string)
     # sing1 - if mana < 40, sing2 if mana > 70 sing3 if 40 < mana < 70
-    # sllep1 if mana < 30 sleep2 if mana > 70 sleep3 if 30 < mana < 70
+    # sleep1 - if mana < 30 sleep2 if mana > 70 sleep3 if 30 < mana < 70
     available_actions = %w[work behold wine bar \
                            marginal sing1 sing2 sing3 sleep1 sleep2 sleep3]
     available_actions.include?(action_string)

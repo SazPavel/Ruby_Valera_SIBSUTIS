@@ -24,7 +24,6 @@ class ActionLoader
                effects: data['effects'].map { |effect| build_effect(effect) }
   end
 
-  # TODO
   def build_cond(data)
     data.to_hash
   end
