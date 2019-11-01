@@ -68,31 +68,31 @@ class Valera
   private
 
   def health!(health)
-    @health += health
+    @health += health.to_i
     @health = valid_min_border(@health, 0)
     @health = valid_max_border(@health, 100)
   end
 
   def mana!(mana)
-    @mana += mana
+    @mana += mana.to_i
     @mana = valid_min_border(@mana, 0)
     @mana = valid_max_border(@mana, 100)
   end
 
   def cheerfulness!(cheerfulness)
-    @cheerfulness += cheerfulness
+    @cheerfulness += cheerfulness.to_i
     @cheerfulness = valid_min_border(@cheerfulness, -10)
     @cheerfulness = valid_max_border(@cheerfulness, 10)
   end
 
   def fatigue!(fatigue)
-    @fatigue += fatigue
+    @fatigue += fatigue.to_i
     @fatigue = valid_min_border(@fatigue, 0)
     @fatigue = valid_max_border(@fatigue, 100)
   end
 
   def money!(money)
-    @money += money
+    @money += money.to_i
     @money = valid_min_border(@money, 0)
   end
 
