@@ -13,32 +13,23 @@ class Valera
   end
 
   def health=(value)
-    @health = value
-    @health = valid_min_border(@health, 0)
-    @health = valid_max_border(@health, 100)
+    @health = check_borders(value.to_i, 0, 100)
   end
 
   def mana=(value)
-    @mana = value
-    @mana = valid_min_border(@mana, 0)
-    @mana = valid_max_border(@mana, 100)
+    @mana = check_borders(value.to_i, 0, 100)
   end
 
   def cheerfulness=(value)
-    @cheerfulness = value
-    @cheerfulness = valid_min_border(@cheerfulness, -10)
-    @cheerfulness = valid_max_border(@cheerfulness, 10)
+    @cheerfulness = check_borders(value.to_i, -10, 10)
   end
 
   def fatigue=(value)
-    @fatigue = value
-    @fatigue = valid_min_border(@fatigue, 0)
-    @fatigue = valid_max_border(@fatigue, 100)
+    @fatigue = check_borders(value.to_i, 0, 100)
   end
 
   def money=(value)
-    @money = value
-    @money = valid_min_border(@money, 0)
+    @money = check_borders(value.to_i, 0, Float::INFINITY)
   end
 
   def checker?(propertie, value)
@@ -68,39 +59,27 @@ class Valera
   private
 
   def health!(health)
-    @health += health.to_i
-    @health = valid_min_border(@health, 0)
-    @health = valid_max_border(@health, 100)
+    @health = check_borders(@health + health.to_i, 0, 100)
   end
 
   def mana!(mana)
-    @mana += mana.to_i
-    @mana = valid_min_border(@mana, 0)
-    @mana = valid_max_border(@mana, 100)
+    @mana = check_borders(@mana + mana.to_i, 0, 100)
   end
 
   def cheerfulness!(cheerfulness)
-    @cheerfulness += cheerfulness.to_i
-    @cheerfulness = valid_min_border(@cheerfulness, -10)
-    @cheerfulness = valid_max_border(@cheerfulness, 10)
+    @cheerfulness = check_borders(@cheerfulness + cheerfulness.to_i, -10, 10)
   end
 
   def fatigue!(fatigue)
-    @fatigue += fatigue.to_i
-    @fatigue = valid_min_border(@fatigue, 0)
-    @fatigue = valid_max_border(@fatigue, 100)
+    @fatigue = check_borders(@fatigue + fatigue.to_i, 0, 100)
   end
 
   def money!(money)
-    @money += money.to_i
-    @money = valid_min_border(@money, 0)
+    @money = check_borders(@money + money.to_i, 0, Float::INFINITY)
   end
 
-  def valid_min_border(propertie, min_border)
-    propertie > min_border ? propertie : min_border
-  end
-
-  def valid_max_border(propertie, max_border)
-    propertie < max_border ? propertie : max_border
+  def check_borders(property, min_border, max_border)
+    property = property > min_border ? property : min_border
+    property < max_border ? property : max_border
   end
 end
