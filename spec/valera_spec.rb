@@ -4,8 +4,27 @@ require 'rspec'
 require './valera.rb'
 
 RSpec.describe Valera do
-  let(:valera) { Valera.new(100, 100, 100, 10, 100) }
+  let(:valera) { Valera.new(100, 100, 10, 10, 100) }
   let(:dead_valera) { Valera.new(0, 0, 0, 0, 0) }
+  let(:invalid_valera) { Valera.new(10000, -100, 1000, -1000, -1000) }
+
+  describe '#initializer' do
+    context 'when health > 100' do
+      it { expect(invalid_valera.health).to be 100 }
+    end
+    context 'when mana < 0' do
+      it { expect(invalid_valera.mana).to be 0 }
+    end
+    context 'when cheerfulness > 10' do
+      it { expect(invalid_valera.cheerfulness).to be 10 }
+    end
+    context 'when fatigue < 0' do
+      it { expect(invalid_valera.fatigue).to be 0 }
+    end
+    context 'when money < 0' do
+      it { expect(invalid_valera.money).to be 0 }
+    end
+  end
 
   describe '#checker?' do
     context 'when mana > value' do

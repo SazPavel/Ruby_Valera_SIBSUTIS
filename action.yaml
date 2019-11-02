@@ -118,7 +118,7 @@
   {
     "name": "marginal",
     "before_text": "Drink with marginals",
-    "after_text": "I'm a intelllectual in the third generation",
+    "after_text": "I'm a intellectual in the third generation",
     "conds": [
       { 
         "field":"money",

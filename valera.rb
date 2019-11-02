@@ -4,32 +4,17 @@
 class Valera
   attr_reader :health, :mana, :cheerfulness, :fatigue, :money
 
-  def initialize(health, mana, cheerfulness, fatigue, money)
-    @health = health
-    @mana = mana
-    @cheerfulness = cheerfulness
-    @fatigue = fatigue
-    @money = money
-  end
-
-  def health=(value)
-    @health = check_borders(value.to_i, 0, 100)
-  end
-
-  def mana=(value)
-    @mana = check_borders(value.to_i, 0, 100)
-  end
-
-  def cheerfulness=(value)
-    @cheerfulness = check_borders(value.to_i, -10, 10)
-  end
-
-  def fatigue=(value)
-    @fatigue = check_borders(value.to_i, 0, 100)
-  end
-
-  def money=(value)
-    @money = check_borders(value.to_i, 0, Float::INFINITY)
+  def initialize(health = 100, mana = 0, cheerfulness = 0, fatigue = 0, money = 100)
+    @health = 0
+    health!(health)
+    @mana = 0
+    mana!(mana)
+    @cheerfulness = 0
+    cheerfulness!(cheerfulness)
+    @fatigue = 0
+    fatigue!(fatigue)
+    @money = 0
+    money!(money)
   end
 
   def checker?(propertie, value)
