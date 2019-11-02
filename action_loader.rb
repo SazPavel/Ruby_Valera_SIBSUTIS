@@ -9,9 +9,11 @@ class ActionLoader
   end
 
   def load
+    return unless File.file?(@filename)
+
     ActionsContainer.new(
       YAML.safe_load(File.open(@filename)).map { |data| build_action(data) }
-    ) if File.file?(@filename)
+    )
   end
 
   private

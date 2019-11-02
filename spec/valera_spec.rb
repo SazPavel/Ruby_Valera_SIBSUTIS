@@ -6,7 +6,7 @@ require './valera.rb'
 RSpec.describe Valera do
   let(:valera) { Valera.new(100, 100, 10, 10, 100) }
   let(:dead_valera) { Valera.new(0, 0, 0, 0, 0) }
-  let(:invalid_valera) { Valera.new(10000, -100, 1000, -1000, -1000) }
+  let(:invalid_valera) { Valera.new(10_000, -100, 1000, -1000, -1000) }
 
   describe '#initializer' do
     context 'when health > 100' do

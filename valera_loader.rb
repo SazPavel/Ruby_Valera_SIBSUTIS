@@ -9,8 +9,11 @@ require './valera.rb'
 class ValeraLoader
   def self.load_from_file(fname)
     filename = File.join(File.dirname(__FILE__), fname)
-    properties = File.file?(filename) ? \
-               File.read(filename).split(' ').map(&:to_i) : [100, 0, 0, 0, 0]
+    properties = if File.file?(filename)
+                   File.read(filename).split(' ').map(&:to_i)
+                 else
+                   [100, 0, 0, 0, 0]
+                 end
     properties.length == 5 ? properties : [100, 0, 0, 0, 0]
   end
 
