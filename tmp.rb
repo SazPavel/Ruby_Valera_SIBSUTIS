@@ -3,5 +3,5 @@
 require './action.rb'
 require './valera.rb'
 
-valera = Valera.new()
-puts valera.class.attributes
+valera = Valera.new(10)
+puts valera.checker?('health', 50)

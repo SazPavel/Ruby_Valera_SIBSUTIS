@@ -4,37 +4,22 @@
 class Valera
   attr_reader :health, :mana, :cheerfulness, :fatigue, :money
 
-  def initialize(health = 100, mana = 0, cheerfulness = 0, fatigue = 0, money = 100)
-    @health = 0
+  def initialize(health = 100, mana = 0,
+                 cheerfulness = 0, fatigue = 0, money = 100)
+    @health = @mana = @fatigue = @cheerfulness = @money = 0
     health!(health)
-    @mana = 0
     mana!(mana)
-    @cheerfulness = 0
     cheerfulness!(cheerfulness)
-    @fatigue = 0
     fatigue!(fatigue)
-    @money = 0
     money!(money)
   end
 
-  def checker?(propertie, value)
-    case propertie
-    when 'health' then @health >= value
-    when 'mana' then @mana >= value
-    when 'cheerfulness' then @cheerfulness >= value
-    when 'fatigue' then @fatigue >= value
-    when 'money' then @money >= value
-    end
+  def checker?(property, value)
+    send(property.to_s).send('>=', value)
   end
 
-  def change_properties!(propertie, value)
-    case propertie
-    when 'health' then health!(value)
-    when 'mana' then mana!(value)
-    when 'cheerfulness' then cheerfulness!(value)
-    when 'fatigue' then fatigue!(value)
-    when 'money' then money!(value)
-    end
+  def change_properties!(property, value)
+    send(property.to_s + '!', value)
   end
 
   def alive?
@@ -64,7 +49,6 @@ class Valera
   end
 
   def check_borders(property, min_border, max_border)
-    property = property > min_border ? property : min_border
-    property < max_border ? property : max_border
+    [[property, min_border].max, max_border].min
   end
 end
