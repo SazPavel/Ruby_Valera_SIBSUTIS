@@ -26,21 +26,6 @@ RSpec.describe Valera do
     end
   end
 
-  describe '#checker?' do
-    context 'when mana > value' do
-      it { expect(valera.checker?('mana', 50)).to be true }
-    end
-    context 'when cheerfulness < value' do
-      it { expect(dead_valera.checker?('cheerfulness', 50)).to be false }
-    end
-    context 'when health > value' do
-      it { expect(valera.checker?('health', 50)).to be true }
-    end
-    context 'when fatigue < value' do
-      it { expect(dead_valera.checker?('fatigue', 50)).to be false }
-    end
-  end
-
   describe '#change_properties!' do
     context 'when mana decrease' do
       it { expect(valera.change_properties!('mana', -50)).to be 50 }

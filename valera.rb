@@ -14,10 +14,6 @@ class Valera
     money!(money)
   end
 
-  def checker?(property, value)
-    send(property.to_s).send('>=', value)
-  end
-
   def change_properties!(property, value)
     send(property.to_s + '!', value)
   end
