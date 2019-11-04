@@ -12,9 +12,10 @@ menu = Menu.new(actions)
 
 loop do
   menu.update(valera)
-  menu.print
+  menu.print_valera(valera)
+  menu.print_menu
   puts 'incorrect value, try again' until menu.correct_input?(gets)
   menu.current_action.execute!(valera)
-  puts menu.current_action.after_text
+  puts "\n\nValera: \"#{menu.current_action.after_text}\"\n\n\n"
 end
 
