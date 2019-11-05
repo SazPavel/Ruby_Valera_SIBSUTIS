@@ -26,6 +26,31 @@ RSpec.describe Valera do
     end
   end
 
+  describe '#reinitializer' do
+    context 'when correct reinitialize' do
+      subject { Valera.new(0, 0, 0, 0, 0) }
+      it do
+        subject.reinitialize!(10, 10, 10, 10, 10)
+        expect(subject.health).to be 10
+        expect(subject.mana).to be 10 
+        expect(subject.cheerfulness).to be 10 
+        expect(subject.fatigue).to be 10 
+        expect(subject.money).to be 10 
+      end
+    end
+    context 'when incorrect reinitialize' do
+      subject { Valera.new(0, 0, 0, 0, 0) }
+      it do
+        subject.reinitialize!(1000, 1000, 1000, 1000, -1000)
+        expect(subject.health).to be 100
+        expect(subject.mana).to be 100 
+        expect(subject.cheerfulness).to be 10 
+        expect(subject.fatigue).to be 100 
+        expect(subject.money).to be 0 
+      end
+    end
+  end
+
   describe '#change_properties!' do
     context 'when mana decrease' do
       it { expect(valera.change_properties!('mana', -50)).to be 50 }

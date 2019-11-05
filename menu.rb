@@ -1,4 +1,4 @@
-require './system_actions.rb'
+require './system_action.rb'
 
 # user interface
 
@@ -16,7 +16,7 @@ class Menu
     action_list.each_with_index { |action, index| @menu_items[(index + 1).to_s] = action }
     @menu_items['l'] = SystemAction.new('load', 'load', 'proizoshol load')
     @menu_items['s'] = SystemAction.new('save', 'save', 'proizoshol save')
-    @menu_items['e'] = SystemAction.new('exit', 'exit', 'proizoshol exit')
+    @menu_items['e'] = SystemAction.new('exit', 'exit', 'exit')
   end
 
   def print_valera(valera)
@@ -43,5 +43,6 @@ class Menu
 
   def execute_command(valera)
     @menu_items[@current_action].execute!(valera)
+    @menu_items[@current_action].after_text
   end
 end
