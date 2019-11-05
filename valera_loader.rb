@@ -5,7 +5,6 @@ require './valera.rb'
 # Save / Load properties
 # If input is incorrect, properties will be set to default:
 # [100, 0, 0, 0, 0]
-# TODO: write test?????????????
 class ValeraLoader
   def self.load_from_file(fname)
     filename = File.join(File.dirname(__FILE__), fname)

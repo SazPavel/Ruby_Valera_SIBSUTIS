@@ -6,17 +6,6 @@ require './valera.rb'
 require './action.rb'
 
 RSpec.describe ValeraChecker do
-  describe '#valid?' do
-    subject { ValeraChecker.send(:valid?, action_string) }
-    context 'when action is correct' do
-      let(:action_string) { 'work' }
-      it { is_expected.to be_truthy }
-    end
-    context 'when action is not correct' do
-      let(:action_string) { 'ork' }
-      it { is_expected.to be_falsey }
-    end
-  end
   describe '#available?' do
     subject { ValeraChecker.send(:available?, valera, action) }
     let(:action) do
