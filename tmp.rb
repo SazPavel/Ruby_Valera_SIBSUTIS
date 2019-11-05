@@ -4,4 +4,6 @@ require './action.rb'
 require './valera.rb'
 
 valera = Valera.new(10)
-puts valera.checker?('health', 50)
+a = '2'
+
+puts((1..10).map(&:to_s).include?(a))

@@ -20,6 +20,6 @@ class ValeraLoader
     filename = File.join(File.dirname(__FILE__), fname)
     properties = [valera.health, valera.mana, valera.cheerfulness, \
                   valera.fatigue, valera.money]
-    File.write(filename, properties)
+    File.write(filename, properties.join(' '))
   end
 end

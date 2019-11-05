@@ -1,6 +1,9 @@
+require './system_actions.rb'
+
 # user interface
+
 class Menu
-  attr_accessor :current_action
+  attr_accessor :current_action, :menu_items
   def initialize(actions)
     @actions = actions
     @menu_items = {}
@@ -10,7 +13,10 @@ class Menu
   def update(valera)
     @menu_items = {}
     action_list = @actions.available_action(valera)
-    action_list.each_with_index { |action, index| @menu_items[index] = action }
+    action_list.each_with_index { |action, index| @menu_items[(index + 1).to_s] = action }
+    @menu_items['l'] = SystemAction.new('load', 'load', 'proizoshol load')
+    @menu_items['s'] = SystemAction.new('save', 'save', 'proizoshol save')
+    @menu_items['e'] = SystemAction.new('exit', 'exit', 'proizoshol exit')
   end
 
   def print_valera(valera)
@@ -24,19 +30,18 @@ class Menu
   def print_menu
     puts "\nValera\'s next action:"
     @menu_items.each do |key, value|
-      puts((key + 1).to_s + ') ' + value.before_text)
+      puts(key + ') ' + value.before_text)
     end
   end
 
   def correct_input?(user_input)
-    begin
-      item = Float(user_input).to_i - 1
-      flag = @menu_items.key? item
-      @current_action = @menu_items[item] if flag
-    rescue TypeError, ArgumentError
-      @current_action = nil
-      flag = false
-    end
+    item = user_input.chomp
+    flag = @menu_items.key? item
+    @current_action = item if flag
     flag
+  end
+
+  def execute_command(valera)
+    @menu_items[@current_action].execute!(valera)
   end
 end

@@ -1,0 +1,26 @@
+# frozen_string_literal: true
+
+require './valera_loader.rb'
+
+class SystemAction
+  attr_accessor :before_text, :after_text, :name
+
+  def initialize(name = '', before_text = '', after_text = '')
+    @name = name
+    @before_text = before_text
+    @after_text = after_text
+  end
+
+  def execute!(valera)
+    case @name
+    when 'exit'
+      exit
+    when 'load'
+      properties = ValeraLoader.load_from_file('valera_properties.txt')
+      valera.reinitialize!(properties[0], properties[1], properties[2],
+                           properties[3], properties[4])
+    when 'save'
+      properties = ValeraLoader.save_to_file(valera, 'valera_properties.txt')
+    end
+  end
+end

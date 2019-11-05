@@ -13,6 +13,11 @@ class Valera
     fatigue!(fatigue)
     money!(money)
   end
+  
+  def reinitialize!(health = 100, mana = 0,
+                    cheerfulness = 0, fatigue = 0, money = 100)
+    initialize(health, mana, cheerfulness, fatigue, money)
+  end
 
   def change_properties!(property, value)
     send(property.to_s + '!', value)
