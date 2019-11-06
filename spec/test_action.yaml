@@ -2,7 +2,7 @@
   {
     "name": "work",
     "before_text": "Go to work",
-    "after_text": "STUPID TEXT FOR STUPID RUBY",
+    "after_text": "STUPID TEXT",
     "conds": [
       { 
         "field":"mana",

@@ -153,7 +153,7 @@
     "conds": [
       { 
         "field":"mana",
-        "operator":"<",
+        "operator":"<=",
         "value":40 }],
     "effects": [
       { 
@@ -180,7 +180,7 @@
     "conds": [
       { 
         "field":"mana",
-        "operator":">",
+        "operator":">=",
         "value":70 }],
     "effects": [
       { 
@@ -238,7 +238,7 @@
     "conds": [
       { 
         "field":"mana",
-        "operator":"<",
+        "operator":"<=",
         "value":30 }],
     "effects": [
       {
@@ -261,7 +261,7 @@
     "conds": [
       { 
         "field":"mana",
-        "operator":">",
+        "operator":">=",
         "value":70 }],
     "effects": [
       {
@@ -285,7 +285,7 @@
       { 
         "field":"mana",
         "operator":">",
-        "value":40 },
+        "value":30 },
       { 
         "field":"mana",
         "operator":"<",

@@ -21,8 +21,11 @@ class MenuIO < Menu
 
   def correct_input?(user_input)
     item = user_input.chomp
-    flag = @menu_items.key? item
-    @current_action = item if flag
-    flag
+    if @menu_items.key? item
+      @current_action = item
+      true
+    else
+      false
+    end
   end
 end

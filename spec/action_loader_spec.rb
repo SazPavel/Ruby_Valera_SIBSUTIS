@@ -14,7 +14,7 @@ RSpec.describe ActionLoader do
         subject { ActionLoader.new(filename).load.actions[0] }
         it { expect(subject.name).to eq 'work' }
         it { expect(subject.before_text).to eq 'Go to work' }
-        it { expect(subject.after_text).to eq 'STUPID TEXT FOR STUPID RUBY' }
+        it { expect(subject.after_text).to eq 'STUPID TEXT' }
       end
       context 'testing conditions' do
         subject { ActionLoader.new(filename).load.actions[0].conds }
