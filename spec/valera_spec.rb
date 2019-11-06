@@ -32,10 +32,10 @@ RSpec.describe Valera do
       it do
         subject.reinitialize!(10, 10, 10, 10, 10)
         expect(subject.health).to be 10
-        expect(subject.mana).to be 10 
-        expect(subject.cheerfulness).to be 10 
-        expect(subject.fatigue).to be 10 
-        expect(subject.money).to be 10 
+        expect(subject.mana).to be 10
+        expect(subject.cheerfulness).to be 10
+        expect(subject.fatigue).to be 10
+        expect(subject.money).to be 10
       end
     end
     context 'when incorrect reinitialize' do
@@ -43,10 +43,10 @@ RSpec.describe Valera do
       it do
         subject.reinitialize!(1000, 1000, 1000, 1000, -1000)
         expect(subject.health).to be 100
-        expect(subject.mana).to be 100 
-        expect(subject.cheerfulness).to be 10 
-        expect(subject.fatigue).to be 100 
-        expect(subject.money).to be 0 
+        expect(subject.mana).to be 100
+        expect(subject.cheerfulness).to be 10
+        expect(subject.fatigue).to be 100
+        expect(subject.money).to be 0
       end
     end
   end

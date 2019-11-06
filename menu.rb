@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 require './system_action.rb'
 
 # user interface constructor
-
 class Menu
   attr_reader :menu_items, :current_action
   def initialize(actions)
@@ -13,8 +14,8 @@ class Menu
   def update!(valera)
     @menu_items = {}
     action_list = @actions.available_action(valera)
-    action_list.each_with_index do 
-      |action, index| @menu_items[(index + 1).to_s] = action
+    action_list.each_with_index do |action, index|
+      @menu_items[(index + 1).to_s] = action
     end
     @menu_items['l'] = SystemAction.new('load', 'load', 'proizoshol load')
     if valera.alive?

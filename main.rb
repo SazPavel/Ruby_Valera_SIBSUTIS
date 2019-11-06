@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 require './valera.rb'
 require './action_loader.rb'
 require './menu_io.rb'
 
-valera = Valera.new()
+valera = Valera.new
 actions = ActionLoader.new('action.yaml').load
 menu = MenuIO.new(actions)
 
@@ -14,5 +16,5 @@ loop do
   after_text = menu.execute_command(valera)
   puts "\n\"#{after_text}\"\n\n\n"
   exit if after_text == 'exit'
-  puts 'Valera is dead' unless valera.alive? 
+  puts 'Valera is dead' unless valera.alive?
 end

@@ -15,7 +15,8 @@ RSpec.describe Menu do
       subject { Menu.new(actions) }
       it do
         subject.update!(valera_alive)
-        expect(subject.menu_items['1']).to eq actions.available_action(valera_alive)[0]
+        expect(subject.menu_items['1']).to eq \
+          actions.available_action(valera_alive)[0]
       end
       it do
         subject.update!(valera_alive)
@@ -37,7 +38,8 @@ RSpec.describe Menu do
       subject { Menu.new(actions) }
       it do
         subject.update!(valera_not_alive)
-        expect(subject.menu_items['1']).to eq actions.available_action(valera_not_alive)[0]
+        expect(subject.menu_items['1']).to eq \
+          actions.available_action(valera_not_alive)[0]
       end
       it do
         subject.update!(valera_not_alive)

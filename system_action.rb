@@ -2,6 +2,7 @@
 
 require './valera_loader.rb'
 
+# Stored all informations about system action
 class SystemAction
   attr_accessor :before_text, :after_text, :name
 
@@ -22,9 +23,9 @@ class SystemAction
       valera.reinitialize!(properties[0], properties[1], properties[2],
                            properties[3], properties[4])
     when 'save'
-      properties = ValeraLoader.save_to_file(valera, @save_file)
+      ValeraLoader.save_to_file(valera, @save_file)
     when 'new'
-      valera.reinitialize!()
+      valera.reinitialize!
     end
     @name
   end

@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 require './menu.rb'
 
 # user interface input/output
-
 class MenuIO < Menu
   def print_valera(valera)
     puts "health:       #{valera.health}"
