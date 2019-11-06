@@ -23,6 +23,8 @@ class SystemAction
                            properties[3], properties[4])
     when 'save'
       properties = ValeraLoader.save_to_file(valera, @save_file)
+    when 'new'
+      valera.reinitialize!()
     end
     @name
   end
