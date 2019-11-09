@@ -247,7 +247,7 @@
         "value":90},
       {
         "field":"mana",
-        "operator":"-50",
+        "operator":"-",
         "value":10},
       {
         "field":"fatigue",
@@ -270,7 +270,7 @@
         "value":3},
       {
         "field":"mana",
-        "operator":"-50",
+        "operator":"-",
         "value":10},
       {
         "field":"fatigue",
@@ -293,7 +293,7 @@
     "effects": [
       {
         "field":"mana",
-        "operator":"-50",
+        "operator":"-",
         "value":10},
       {
         "field":"fatigue",
