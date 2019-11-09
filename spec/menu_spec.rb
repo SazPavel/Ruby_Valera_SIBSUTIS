@@ -20,12 +20,12 @@ RSpec.describe Menu do
       end
       it do
         subject.update!(valera_alive)
-        load_menu = SystemAction.new('load', 'load', 'proizoshol load')
+        load_menu = SystemAction.new('load', 'load', 'loaded')
         expect(subject.menu_items['l'].name).to eq load_menu.name
       end
       it do
         subject.update!(valera_alive)
-        save_menu = SystemAction.new('save', 'save', 'proizoshol save')
+        save_menu = SystemAction.new('save', 'save', 'saved')
         expect(subject.menu_items['s'].name).to eq save_menu.name
       end
       it do
@@ -43,12 +43,12 @@ RSpec.describe Menu do
       end
       it do
         subject.update!(valera_not_alive)
-        load_menu = SystemAction.new('load', 'load', 'proizoshol load')
+        load_menu = SystemAction.new('load', 'load', 'loaded')
         expect(subject.menu_items['l'].name).to eq load_menu.name
       end
       it do
         subject.update!(valera_not_alive)
-        new_menu = SystemAction.new('new', 'save', 'proizoshol save')
+        new_menu = SystemAction.new('new', 'new', 'start new game')
         expect(subject.menu_items['n'].name).to eq new_menu.name
       end
       it do
